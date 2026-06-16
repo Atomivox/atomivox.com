@@ -1,99 +1,86 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
-import SplitHeading from "./SplitHeading";
-import MagneticButton from "./MagneticButton";
+import { motion } from "motion/react";
+import Button from "./Button";
+import ImpactObject from "./ImpactObject";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const container = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
-  },
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 };
-
 const item = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 34 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
 };
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const bugY = useTransform(scrollY, [0, 700], [0, 140]);
-  const bugRotate = useTransform(scrollY, [0, 700], [0, 12]);
-
   return (
-    <section className="relative overflow-hidden bg-dark-gradient">
-      <div aria-hidden className="burst pointer-events-none absolute inset-0" />
-      <motion.div
-        aria-hidden
-        style={{ y: bugY, rotate: bugRotate }}
-        className="pointer-events-none absolute -right-24 top-1/2 hidden w-[34rem] -translate-y-1/2 opacity-40 mix-blend-screen lg:block"
-      >
-        <Image
-          src="/brand/bug-purple.png"
-          alt=""
-          width={722}
-          height={718}
-          priority
-        />
-      </motion.div>
+    <section className="relative overflow-hidden border-b-2 border-ink bg-bone">
+      <ImpactObject label="Dynamite + Clock Bomb" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-40">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-36"
+      >
         <motion.span
           variants={item}
-          initial="hidden"
-          animate="show"
           className="inline-flex items-center gap-3 font-display text-sm uppercase tracking-[0.35em] text-pink"
         >
           <span className="h-px w-10 bg-pink" />
           B2B Brand Studio · Ireland
         </motion.span>
 
-        <SplitHeading
-          as="h1"
-          playOnLoad
-          className="mt-8 max-w-4xl font-display text-5xl uppercase leading-[0.9] tracking-tight text-bone sm:text-7xl lg:text-[7.5rem]"
+        <h1 className="mt-8 font-display uppercase leading-[0.82] tracking-tight text-ink">
+          <motion.span
+            variants={item}
+            className="block text-5xl sm:text-7xl lg:text-8xl"
+          >
+            You can&apos;t scale
+          </motion.span>
+          <motion.span
+            variants={item}
+            className="block pl-0 text-5xl sm:text-7xl lg:text-8xl sm:pl-16"
+          >
+            a story that only
+          </motion.span>
+          <motion.span
+            variants={item}
+            className="block text-5xl sm:text-7xl lg:text-8xl"
+          >
+            exists in your
+          </motion.span>
+          <motion.span
+            variants={item}
+            className="text-swirl block pl-0 text-7xl sm:pl-24 sm:text-9xl lg:text-[11rem]"
+          >
+            head.
+          </motion.span>
+        </h1>
+
+        <motion.p
+          variants={item}
+          className="mt-10 max-w-xl text-xl leading-relaxed text-ink/75 sm:text-2xl"
         >
-          You can&apos;t scale a story that only exists in your{" "}
-          <span className="text-brand-gradient">head.</span>
-        </SplitHeading>
+          We build the brand position, message, and story your marketing has been
+          missing.
+        </motion.p>
 
         <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
+          variants={item}
+          className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
         >
-          <motion.p
-            variants={item}
-            className="mt-8 max-w-2xl text-xl leading-relaxed text-bone/75 sm:text-2xl"
-          >
-            We build the brand position, message, and story your marketing has
-            been missing.
-          </motion.p>
-
-          <motion.div
-            variants={item}
-            className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
-          >
-            <MagneticButton
-              href="/contact"
-              className="border-2 border-pink bg-pink px-8 py-4 text-center font-display text-base uppercase tracking-[0.2em] text-bone transition-colors hover:bg-transparent hover:text-pink"
-            >
-              Book a Brand Audit
-            </MagneticButton>
-            <Link
-              href="/contact"
-              className="border-2 border-bone/25 px-8 py-4 text-center font-display text-base uppercase tracking-[0.2em] text-bone/90 transition-colors hover:border-bone hover:text-bone"
-            >
-              Book a discovery call
-            </Link>
-          </motion.div>
+          <Button href="/contact" variant="primary">
+            Book a Brand Audit
+          </Button>
+          <Button href="/contact" variant="outline">
+            Book a discovery call
+          </Button>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

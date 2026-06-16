@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Button from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Work — Atomivox",
@@ -8,24 +8,24 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <section className="bg-dark-gradient">
-      <div className="mx-auto max-w-3xl px-6 py-28 lg:py-36 text-center">
-        <span className="font-display text-sm uppercase tracking-[0.3em] text-pink">
+    <section className="border-b-2 border-ink">
+      <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:py-32">
+        <span className="inline-flex items-center gap-3 font-display text-sm uppercase tracking-[0.35em] text-pink">
+          <span className="h-px w-8 bg-pink" />
           Work
         </span>
-        <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] text-bone sm:text-6xl">
-          The proof is being written.
+        <h1 className="mt-6 font-display text-5xl uppercase leading-[0.9] text-ink sm:text-6xl">
+          The proof is being <span className="text-swirl">written.</span>
         </h1>
-        <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-bone/75">
+        <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-ink/75">
           We&apos;re in early client engagements. Case studies coming soon. In the
           meantime, book a Brand Audit and experience the process yourself.
         </p>
-        <Link
-          href="/contact"
-          className="mt-10 inline-block rounded-full bg-pink px-8 py-4 font-display text-base uppercase tracking-widest text-bone transition-transform hover:scale-[1.03]"
-        >
-          Book a Brand Audit
-        </Link>
+        <div className="mt-10 flex justify-center">
+          <Button href="/contact" variant="primary">
+            Book a Brand Audit
+          </Button>
+        </div>
       </div>
     </section>
   );

@@ -10,14 +10,14 @@ const links = [
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-bone/10 bg-[#120011]/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b-2 border-ink bg-bone/90 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link href="/" className="flex items-center" aria-label="Atomivox home">
           <Image
-            src="/brand/logo-white.png"
+            src="/brand/logo-color.png"
             alt="Atomivox"
-            width={127}
-            height={36}
+            width={132}
+            height={38}
             priority
             className="h-8 w-auto"
           />
@@ -28,7 +28,7 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-display text-base uppercase tracking-[0.2em] text-bone/70 transition-colors hover:text-pink"
+              className="font-display text-lg uppercase tracking-[0.18em] text-ink transition-colors hover:text-pink"
             >
               {link.label}
             </Link>
@@ -37,7 +37,7 @@ export default function Nav() {
 
         <Link
           href="/contact"
-          className="border-2 border-pink bg-pink px-5 py-2.5 font-display text-sm uppercase tracking-[0.2em] text-bone transition-colors hover:bg-transparent hover:text-pink"
+          className="bg-pink px-5 py-2.5 font-display text-sm uppercase tracking-[0.18em] text-bone transition-colors hover:bg-ink"
         >
           Book a Brand Audit
         </Link>
