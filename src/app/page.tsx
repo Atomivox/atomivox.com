@@ -1,5 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import Hero from "@/components/Hero";
+import Reveal from "@/components/Reveal";
+import Marquee from "@/components/Marquee";
+import SplitHeading from "@/components/SplitHeading";
+import ProductCard from "@/components/ProductCard";
+import MagneticButton from "@/components/MagneticButton";
 
 const products = [
   {
@@ -46,14 +52,6 @@ const steps = [
   },
 ];
 
-const marqueeItems = [
-  "Brand Strategy",
-  "Storytelling",
-  "Brand Architecture",
-  "Copywriting",
-  "Positioning",
-];
-
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex items-center gap-3 font-display text-sm uppercase tracking-[0.35em] text-pink">
@@ -63,79 +61,24 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Marquee() {
-  return (
-    <div className="overflow-hidden border-y-2 border-ink/20 bg-pink py-4">
-      <div className="flex w-max animate-marquee">
-        {[0, 1].map((group) => (
-          <div key={group} className="flex shrink-0 items-center" aria-hidden={group === 1}>
-            {marqueeItems.map((item) => (
-              <span key={item} className="flex items-center">
-                <span className="px-8 font-display text-2xl uppercase tracking-[0.2em] text-ink">
-                  {item}
-                </span>
-                <span className="text-plum">✺</span>
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <>
-      {/* ───────────────────────── HERO ───────────────────────── */}
-      <section className="relative overflow-hidden bg-dark-gradient">
-        <div aria-hidden className="burst pointer-events-none absolute inset-0" />
-        <Image
-          src="/brand/bug-purple.png"
-          alt=""
-          aria-hidden
-          width={722}
-          height={718}
-          className="pointer-events-none absolute -right-24 top-1/2 hidden w-[34rem] -translate-y-1/2 opacity-40 mix-blend-screen lg:block"
-        />
-        <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-40">
-          <Eyebrow>B2B Brand Studio · Ireland</Eyebrow>
-          <h1 className="mt-8 max-w-4xl font-display text-5xl uppercase leading-[0.9] tracking-tight text-bone sm:text-7xl lg:text-[7.5rem]">
-            You can&apos;t scale a story that only exists in your{" "}
-            <span className="text-brand-gradient">head.</span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-bone/75 sm:text-2xl">
-            We build the brand position, message, and story your marketing has
-            been missing.
-          </p>
-          <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link
-              href="/contact"
-              className="border-2 border-pink bg-pink px-8 py-4 text-center font-display text-base uppercase tracking-[0.2em] text-bone transition-colors hover:bg-transparent hover:text-pink"
-            >
-              Book a Brand Audit
-            </Link>
-            <Link
-              href="/contact"
-              className="border-2 border-bone/25 px-8 py-4 text-center font-display text-base uppercase tracking-[0.2em] text-bone/90 transition-colors hover:border-bone hover:text-bone"
-            >
-              Book a discovery call
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
-      {/* ─────────────────────── MARQUEE ─────────────────────── */}
       <Marquee />
 
       {/* ─────────────────────── THE PROBLEM ─────────────────────── */}
       <section>
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <Eyebrow>The problem</Eyebrow>
-          <h2 className="mt-6 max-w-3xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl">
+          <SplitHeading
+            as="h2"
+            className="mt-6 max-w-3xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl"
+          >
             The playbook is broken. It was never your fault.
-          </h2>
-          <div className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
+          </SplitHeading>
+          <Reveal className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
             <p>Website. Agency. Ads. Fractional CMO.</p>
             <p>
               You followed the playbook. The needle didn&apos;t move. Or it moved
@@ -160,7 +103,7 @@ export default function Home() {
             <p className="font-display text-2xl uppercase tracking-wide text-bone">
               So the agency never builds you one.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -168,11 +111,13 @@ export default function Home() {
       <section className="bg-plum/40">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <Eyebrow>The real problem</Eyebrow>
-          <h2 className="mt-6 max-w-4xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl">
-            Your team knows the business at a ten. Your buyer arrives at a{" "}
-            <span className="text-pink">one.</span>
-          </h2>
-          <div className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
+          <SplitHeading
+            as="h2"
+            className="mt-6 max-w-4xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl"
+          >
+            Your team knows the business at a ten. Your buyer arrives at a one.
+          </SplitHeading>
+          <Reveal className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
             <p>
               Every attempt to close that gap from the inside comes out sounding
               like it was written for people who already get it.
@@ -191,7 +136,7 @@ export default function Home() {
               The industry should be helping close that gap. Instead, it&apos;s
               profiting from it.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -199,10 +144,13 @@ export default function Home() {
       <section>
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <Eyebrow>The guide</Eyebrow>
-          <h2 className="mt-6 max-w-3xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl">
+          <SplitHeading
+            as="h2"
+            className="mt-6 max-w-3xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl"
+          >
             We&apos;ve been on both sides of this brief.
-          </h2>
-          <div className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
+          </SplitHeading>
+          <Reveal className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
             <p>
               We&apos;ve watched founders sign off on their third €25k website
               rebuild and say &ldquo;hopefully this one does the trick.&rdquo;
@@ -217,7 +165,7 @@ export default function Home() {
             <p className="font-display text-2xl uppercase tracking-wide text-bone">
               That&apos;s the outcome we&apos;re built to deliver.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -225,10 +173,13 @@ export default function Home() {
       <section id="services" className="bg-dark-gradient">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <Eyebrow>What we do</Eyebrow>
-          <h2 className="mt-6 max-w-3xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl">
+          <SplitHeading
+            as="h2"
+            className="mt-6 max-w-3xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl"
+          >
             We do one thing. We do it properly.
-          </h2>
-          <div className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
+          </SplitHeading>
+          <Reveal className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
             <p>
               Your position in the market. The message that travels without you.
               The story your whole team tells the same way.
@@ -240,32 +191,22 @@ export default function Home() {
             <p className="font-display text-2xl uppercase tracking-wide text-bone">
               The groundwork. Built once. Built right. Used by everyone.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="mt-16 grid border border-bone/15 sm:grid-cols-2">
+          <Reveal className="mt-16 grid border border-bone/15 sm:grid-cols-2">
             {products.map((p, i) => (
-              <Link
+              <ProductCard
                 key={p.name}
+                name={p.name}
+                body={p.body}
+                meta={p.meta}
                 href={p.href}
-                className={`group flex flex-col p-8 transition-colors hover:bg-pink lg:p-10 ${
-                  i % 2 === 0 ? "sm:border-r" : ""
-                } ${i < 2 ? "border-b" : ""} border-bone/15`}
-              >
-                <h3 className="font-display text-3xl uppercase tracking-wide text-bone group-hover:text-ink">
-                  {p.name}
-                </h3>
-                <p className="mt-4 flex-1 text-base leading-relaxed text-bone/70 group-hover:text-ink/80">
-                  {p.body}
-                </p>
-                <p className="mt-6 text-sm italic text-gold/90 group-hover:text-ink/70">
-                  {p.meta}
-                </p>
-                <span className="mt-4 font-display text-sm uppercase tracking-[0.2em] text-pink transition-transform group-hover:translate-x-1 group-hover:text-ink">
-                  Learn more →
-                </span>
-              </Link>
+                className={`${i % 2 === 0 ? "sm:border-r" : ""} ${
+                  i < 2 ? "border-b" : ""
+                } border-bone/15`}
+              />
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -273,30 +214,34 @@ export default function Home() {
       <section>
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <Eyebrow>How it works</Eyebrow>
-          <h2 className="mt-6 font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl">
+          <SplitHeading
+            as="h2"
+            className="mt-6 font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl"
+          >
             The CORE Messaging Process
-          </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-bone/75">
-            Three steps. No homework you&apos;ll never finish. No decks that live
-            in Dropbox.
-          </p>
+          </SplitHeading>
+          <Reveal className="mt-6 max-w-2xl text-lg leading-relaxed text-bone/75">
+            <p>
+              Three steps. No homework you&apos;ll never finish. No decks that
+              live in Dropbox.
+            </p>
+          </Reveal>
 
           <div className="mt-14 border-b border-bone/15">
-            {steps.map((s) => (
-              <div
-                key={s.n}
-                className="grid items-baseline gap-4 border-t border-bone/15 py-8 transition-colors hover:bg-bone/[0.03] md:grid-cols-[8rem_14rem_1fr] md:gap-8"
-              >
-                <span className="font-display text-6xl leading-none text-pink">
-                  {s.n}
-                </span>
-                <h3 className="font-display text-3xl uppercase tracking-wide text-bone">
-                  {s.title}
-                </h3>
-                <p className="max-w-2xl text-base leading-relaxed text-bone/70">
-                  {s.body}
-                </p>
-              </div>
+            {steps.map((s, i) => (
+              <Reveal key={s.n} delay={i * 0.08}>
+                <div className="grid items-baseline gap-4 border-t border-bone/15 py-8 transition-colors hover:bg-bone/[0.03] md:grid-cols-[8rem_14rem_1fr] md:gap-8">
+                  <span className="font-display text-6xl leading-none text-pink">
+                    {s.n}
+                  </span>
+                  <h3 className="font-display text-3xl uppercase tracking-wide text-bone">
+                    {s.title}
+                  </h3>
+                  <p className="max-w-2xl text-base leading-relaxed text-bone/70">
+                    {s.body}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -304,8 +249,10 @@ export default function Home() {
 
       {/* ─────────────────────── SOCIAL PROOF ─────────────────────── */}
       <section className="bg-plum/40">
-        <div className="mx-auto max-w-7xl px-6 py-24 text-center lg:px-10 lg:py-32">
-          <Eyebrow>What changes when the story is clear</Eyebrow>
+        <Reveal className="mx-auto max-w-7xl px-6 py-24 text-center lg:px-10 lg:py-32">
+          <div className="flex justify-center">
+            <Eyebrow>What changes when the story is clear</Eyebrow>
+          </div>
           <p className="mx-auto mt-8 max-w-3xl font-display text-3xl uppercase leading-tight text-bone sm:text-4xl">
             We&apos;re in early engagements. Case studies coming. In the meantime,
             book a Brand Audit.
@@ -321,18 +268,21 @@ export default function Home() {
           >
             Book a Brand Audit
           </Link>
-        </div>
+        </Reveal>
       </section>
 
       {/* ─────────────────────── WHO IT'S FOR ─────────────────────── */}
       <section>
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <Eyebrow>Who it&apos;s for</Eyebrow>
-          <h2 className="mt-6 font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl">
+          <SplitHeading
+            as="h2"
+            className="mt-6 font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl"
+          >
             This is for you if.
-          </h2>
+          </SplitHeading>
 
-          <div className="mt-14 grid gap-px border border-bone/15 md:grid-cols-2">
+          <Reveal className="mt-14 grid gap-px border border-bone/15 md:grid-cols-2">
             <div className="bg-pink/[0.06] p-8 lg:p-10">
               <h3 className="font-display text-2xl uppercase tracking-wide text-pink">
                 Right fit
@@ -354,7 +304,7 @@ export default function Home() {
                 <li>You want validation, not truth</li>
               </ul>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -362,11 +312,14 @@ export default function Home() {
       <section className="bg-dark-gradient">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <Eyebrow>The stakes</Eyebrow>
-          <h2 className="mt-6 max-w-4xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl">
+          <SplitHeading
+            as="h2"
+            className="mt-6 max-w-4xl font-display text-4xl uppercase leading-[0.95] text-bone sm:text-6xl"
+          >
             Every month without the groundwork is another month in the marketing
             casino.
-          </h2>
-          <div className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
+          </SplitHeading>
+          <Reveal className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-bone/75">
             <p>
               Another spin. Another agency invoice. Another campaign that produces
               impressions and no revenue. Another good hire who can&apos;t perform
@@ -380,7 +333,7 @@ export default function Home() {
               It&apos;s not a slow emergency. It&apos;s just expensive. And it
               compounds.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -395,30 +348,35 @@ export default function Home() {
           className="pointer-events-none absolute -bottom-16 -left-16 w-72 opacity-10"
         />
         <div className="relative mx-auto max-w-7xl px-6 py-28 text-center lg:px-10 lg:py-40">
-          <h2 className="mx-auto max-w-3xl font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">
+          <SplitHeading
+            as="h2"
+            className="mx-auto max-w-3xl font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl"
+          >
             Start with the Brand Audit.
-          </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-bone/90">
-            Five to seven days. An honest outside view of where you actually
-            stand. From €950. Credited toward CORE Messaging within sixty days.
-          </p>
-          <p className="mt-4 font-display text-lg uppercase tracking-[0.2em] text-bone/80">
-            No retainer. No ongoing commitment. Just clarity.
-          </p>
-          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="border-2 border-ink bg-ink px-8 py-4 font-display text-base uppercase tracking-[0.2em] text-bone transition-colors hover:bg-transparent hover:text-ink"
-            >
-              Book Your Brand Audit
-            </Link>
-            <Link
-              href="/contact"
-              className="border-2 border-bone/40 px-8 py-4 font-display text-base uppercase tracking-[0.2em] text-bone transition-colors hover:bg-bone hover:text-plum"
-            >
-              Book a 30-minute discovery call
-            </Link>
-          </div>
+          </SplitHeading>
+          <Reveal className="mt-8">
+            <p className="mx-auto max-w-2xl text-xl leading-relaxed text-bone/90">
+              Five to seven days. An honest outside view of where you actually
+              stand. From €950. Credited toward CORE Messaging within sixty days.
+            </p>
+            <p className="mt-4 font-display text-lg uppercase tracking-[0.2em] text-bone/80">
+              No retainer. No ongoing commitment. Just clarity.
+            </p>
+            <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <MagneticButton
+                href="/contact"
+                className="border-2 border-ink bg-ink px-8 py-4 font-display text-base uppercase tracking-[0.2em] text-bone transition-colors hover:bg-transparent hover:text-ink"
+              >
+                Book Your Brand Audit
+              </MagneticButton>
+              <Link
+                href="/contact"
+                className="border-2 border-bone/40 px-8 py-4 font-display text-base uppercase tracking-[0.2em] text-bone transition-colors hover:bg-bone hover:text-plum"
+              >
+                Book a 30-minute discovery call
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

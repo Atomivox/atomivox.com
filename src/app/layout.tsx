@@ -3,6 +3,7 @@ import { Pathway_Gothic_One, Karma } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const pathway = Pathway_Gothic_One({
   variable: "--font-pathway",
@@ -42,9 +43,11 @@ export default function RootLayout({
       className={`${pathway.variable} ${karma.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
