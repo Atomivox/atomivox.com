@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import ProductCard from "@/components/ProductCard";
 import Faq from "@/components/Faq";
 import Button from "@/components/Button";
-import { Spark, Bolt, Star, Cross } from "@/components/Marks";
+import { Star, Bolt, Scribble, Eye, Skull, Barbed, Cross } from "@/components/Marks";
 
 const products = [
   { index: "001", kicker: "Entry", name: "Brand Audit™", body: "An honest outside view of your brand and website. What's working, what's undermining you, what to fix first.", meta: "From €950 · 5–7 days · Credited toward CORE Messaging", href: "/services/brand-audit" },
@@ -63,7 +63,7 @@ export default function Home() {
       <Section>
         <Head
           index="01"
-          mark={Spark}
+          mark={Star}
           label="The problem"
           title={<>The playbook is <span className="text-swirl">broken.</span></>}
           copy={
@@ -98,7 +98,7 @@ export default function Home() {
       <Section>
         <Head
           index="03"
-          mark={Star}
+          mark={Scribble}
           label="The guide"
           title={<>We&apos;ve been on both sides of this brief.</>}
           copy={
@@ -115,7 +115,7 @@ export default function Home() {
       <Section id="services">
         <Head
           index="04"
-          mark={Cross}
+          mark={Star}
           label="What we do"
           title={<>We do one thing. We do it <span className="text-swirl">properly.</span></>}
           copy={<p>Your position in the market. The message that travels without you. The story your whole team tells the same way. Not campaigns. Not SEO. The groundwork — built once, used by everyone.</p>}
@@ -132,7 +132,7 @@ export default function Home() {
         <Head
           dark
           index="05"
-          mark={Spark}
+          mark={Bolt}
           label="How it works"
           title={<>The CORE Messaging Process</>}
           copy={<p>Three steps. No homework you&apos;ll never finish. No decks that live in a folder.</p>}
@@ -154,7 +154,7 @@ export default function Home() {
       <Section>
         <Head
           index="06"
-          mark={Bolt}
+          mark={Scribble}
           label="Who it's for"
           title={<>This is for you if.</>}
           copy={<p>The honest fit test. We&apos;d rather tell you now than waste your money later.</p>}
@@ -193,9 +193,11 @@ export default function Home() {
 
       {/* FINAL CTA */}
       <section className="relative overflow-hidden border-b border-hairline">
-        <Spark className="pointer-events-none absolute left-[8%] top-16 hidden h-10 w-10 text-pink/30 sm:block" />
-        <Bolt className="pointer-events-none absolute right-[12%] top-24 hidden h-12 w-12 text-pink/25 sm:block" />
-        <Star className="pointer-events-none absolute bottom-16 left-[18%] hidden h-8 w-8 text-pink/30 sm:block" />
+        <Eye className="pointer-events-none absolute left-[7%] top-12 hidden h-16 w-16 text-pink/25 lg:block" />
+        <Skull className="pointer-events-none absolute right-[9%] top-20 hidden h-16 w-16 text-ink/15 lg:block" />
+        <Bolt className="pointer-events-none absolute bottom-24 right-[16%] hidden h-12 w-12 text-pink/25 lg:block" />
+        <Star className="pointer-events-none absolute bottom-16 left-[15%] hidden h-10 w-10 text-pink/30 lg:block" />
+        <Barbed className="pointer-events-none absolute bottom-10 left-1/2 hidden h-6 w-48 -translate-x-1/2 text-ink/15 lg:block" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 text-center lg:px-10 lg:py-36">
           <Reveal>
             <h2 className="mx-auto max-w-4xl font-display text-6xl uppercase leading-[0.85] tracking-[-0.01em] text-ink sm:text-8xl">
