@@ -1,48 +1,58 @@
 import Link from "next/link";
 
+type Props = {
+  name: string;
+  body: string;
+  meta: string;
+  href: string;
+  index: string;
+  kicker: string;
+  accent?: boolean;
+  className?: string;
+};
+
 export default function ProductCard({
   name,
   body,
   meta,
   href,
+  index,
+  kicker,
+  accent = false,
   className,
-}: {
-  name: string;
-  body: string;
-  meta: string;
-  href: string;
-  className?: string;
-}) {
+}: Props) {
+  const theme = accent
+    ? "bg-pink text-bone"
+    : "bg-bone text-ink hover:bg-ink hover:text-bone";
+  const muted = accent ? "text-bone/80" : "text-ink/55 group-hover:text-bone/70";
+  const bodyText = accent
+    ? "text-bone/90"
+    : "text-ink/70 group-hover:text-bone/80";
+
   return (
     <Link
       href={href}
-      className={`group flex flex-col bg-bone p-8 transition-colors duration-300 hover:bg-ink lg:p-10 ${className ?? ""}`}
+      className={`group flex min-h-[20rem] flex-col p-8 transition-colors duration-300 lg:p-10 ${theme} ${className ?? ""}`}
     >
-      <h3 className="font-display text-3xl uppercase tracking-wide text-ink transition-colors group-hover:text-bone">
-        {name}
-      </h3>
-      <p className="mt-4 flex-1 leading-relaxed text-ink/70 transition-colors group-hover:text-bone/80">
-        {body}
-      </p>
-      <p className="mt-6 text-sm italic text-ink/50 transition-colors group-hover:text-pink">
-        {meta}
-      </p>
-      <span className="mt-6 inline-flex items-center font-display text-sm uppercase tracking-[0.15em] text-pink">
-        Learn more
-        <svg
-          viewBox="0 0 16 16"
-          fill="none"
-          className="ml-2 h-4 w-4 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
-        >
-          <path
-            d="M1 8h13M9 3l5 5-5 5"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
+      <div className={`flex items-center justify-between font-display text-xs uppercase tracking-[0.25em] ${muted}`}>
+        <span>{kicker}</span>
+        <span>AVX</span>
+      </div>
+
+      <h3 className="mt-8 font-display text-4xl uppercase tracking-wide">{name}</h3>
+      <div className="mt-4 h-px w-12 bg-current opacity-30" />
+      <p className={`mt-5 flex-1 leading-relaxed ${bodyText}`}>{body}</p>
+      <p className={`mt-5 text-sm italic ${muted}`}>{meta}</p>
+
+      <div className="mt-8 flex items-center justify-between font-display uppercase tracking-[0.2em]">
+        <span className="text-4xl leading-none">{index}</span>
+        <span className="inline-flex items-center text-sm">
+          Learn more
+          <svg viewBox="0 0 16 16" fill="none" className="ml-2 h-4 w-4 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+            <path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+      </div>
     </Link>
   );
 }

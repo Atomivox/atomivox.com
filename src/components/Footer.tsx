@@ -1,62 +1,75 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const nav = [
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "https://instagram.com", label: "Instagram", external: true },
+  { href: "https://linkedin.com", label: "LinkedIn", external: true },
+];
+
 export default function Footer() {
   return (
-    <footer className="border-t border-hairline bg-bone">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="flex items-center gap-5">
-          <Image
-            src="/brand/bug-pink.png"
-            alt="Atomivox"
-            width={722}
-            height={718}
-            className="h-14 w-14 shrink-0"
-          />
-          <p className="max-w-md font-display text-3xl uppercase leading-[0.95] tracking-wide text-ink">
-            Brand position. <span className="text-pink">Clear message.</span>{" "}
-            Story that scales.
-          </p>
-        </div>
-
-        <div className="mt-14 grid grid-cols-2 gap-8 border-t border-hairline pt-10 sm:grid-cols-3">
+    <footer className="bg-ink text-bone">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-10">
+          {/* left: bug + sticker + line */}
           <div>
-            <h3 className="font-display text-xs uppercase tracking-[0.2em] text-ink/40">
-              Services
-            </h3>
-            <ul className="mt-4 space-y-2 text-ink/70">
-              <li><Link href="/services" className="hover:text-pink">Brand Audit</Link></li>
-              <li><Link href="/services" className="hover:text-pink">CORE Messaging</Link></li>
-              <li><Link href="/services" className="hover:text-pink">Customer Clarity</Link></li>
-              <li><Link href="/services" className="hover:text-pink">Brand Website</Link></li>
+            <div className="relative inline-block">
+              <Image
+                src="/brand/bug-white.png"
+                alt="Atomivox"
+                width={429}
+                height={425}
+                className="h-48 w-48"
+              />
+              <span className="absolute -left-4 top-2 -rotate-6 bg-pink px-3 py-1 font-display text-sm uppercase tracking-[0.2em] text-bone">
+                Open for briefs
+              </span>
+            </div>
+            <p className="mt-10 max-w-sm font-display text-3xl uppercase leading-[0.95] tracking-wide">
+              Brand position. <span className="text-pink">Clear message.</span>{" "}
+              Story that scales.
+            </p>
+          </div>
+
+          {/* right: navigate */}
+          <div className="lg:pl-12">
+            <span className="font-display text-sm uppercase tracking-[0.35em] text-bone/40">
+              Navigate
+            </span>
+            <ul className="mt-6">
+              {nav.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    {...(item.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="group inline-flex items-center font-display text-5xl uppercase leading-[1.05] tracking-tight text-bone transition-colors hover:text-pink sm:text-6xl"
+                  >
+                    {item.label}
+                    <span className="ml-3 inline-block -translate-x-3 text-3xl opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                      ↗
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-          <div>
-            <h3 className="font-display text-xs uppercase tracking-[0.2em] text-ink/40">
-              Company
-            </h3>
-            <ul className="mt-4 space-y-2 text-ink/70">
-              <li><Link href="/about" className="hover:text-pink">About</Link></li>
-              <li><Link href="/work" className="hover:text-pink">Work</Link></li>
-              <li><Link href="/contact" className="hover:text-pink">Contact</Link></li>
-            </ul>
-          </div>
-          <div className="col-span-2 sm:col-span-1">
-            <h3 className="font-display text-xs uppercase tracking-[0.2em] text-ink/40">
-              Get started
-            </h3>
-            <Link
-              href="/contact"
-              className="mt-4 inline-block bg-pink px-5 py-3 font-display text-sm uppercase tracking-[0.15em] text-bone transition-colors hover:bg-ink"
-            >
-              Book a Brand Audit
-            </Link>
-          </div>
         </div>
 
-        <div className="mt-14 flex flex-col justify-between gap-3 border-t border-hairline pt-6 font-display text-xs uppercase tracking-[0.2em] text-ink/40 sm:flex-row">
-          <span>© {new Date().getFullYear()} Atomivox</span>
-          <span>B2B Brand Studio · Ireland</span>
+        {/* bottom bar */}
+        <div className="mt-20 flex flex-col justify-between gap-4 border-t border-bone/15 pt-8 sm:flex-row sm:items-center">
+          <span className="font-display text-2xl uppercase tracking-tight text-bone">
+            © 2026 Atomivox
+          </span>
+          <div className="flex gap-8 font-display text-xs uppercase tracking-[0.25em] text-bone/50">
+            <Link href="/privacy" className="hover:text-pink">Privacy Policy</Link>
+            <Link href="/contact" className="hover:text-pink">Site Credit</Link>
+          </div>
         </div>
       </div>
     </footer>

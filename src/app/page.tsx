@@ -7,27 +7,36 @@ import Button from "@/components/Button";
 
 const products = [
   {
+    index: "001",
+    kicker: "Entry",
     name: "Brand Audit™",
     body: "An honest outside view of your brand and website. What's working, what's undermining you, what to fix first.",
-    meta: "From €950 · 5 to 7 days · Credited toward CORE Messaging within 60 days",
+    meta: "From €950 · 5–7 days · Credited toward CORE Messaging",
     href: "/services/brand-audit",
   },
   {
+    index: "002",
+    kicker: "Flagship",
+    accent: true,
     name: "CORE Messaging™",
-    body: "Our flagship. A guided series that extracts the story from your founding team's heads and builds it into something the whole business can use.",
-    meta: "From €8,500 · 4 to 8 weeks",
+    body: "A guided series that extracts the story from your founding team's heads and builds it into something the whole business can use.",
+    meta: "From €8,500 · 4–8 weeks",
     href: "/services/core-messaging",
   },
   {
+    index: "003",
+    kicker: "Research",
     name: "Customer Clarity™",
-    body: "You think you know why customers chose you. You're probably half right. Structured interviews turned into a clear report, in their words, not yours.",
-    meta: "From €2,500 · 2 to 4 weeks",
+    body: "You think you know why customers chose you. You're probably half right. Structured interviews, turned into a clear report in their words.",
+    meta: "From €2,500 · 2–4 weeks",
     href: "/services/customer-clarity",
   },
   {
+    index: "004",
+    kicker: "Build",
     name: "Brand Website™",
     body: "A website built on the brand position. Not instead of it.",
-    meta: "From €12,000 · 2 to 3 months",
+    meta: "From €12,000 · 2–3 months",
     href: "/services/brand-website",
   },
 ];
@@ -167,15 +176,17 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <Reveal className="mt-14 grid border border-hairline sm:grid-cols-2">
-            {products.map((p, i) => (
+          <Reveal className="mt-14 grid gap-px bg-hairline sm:grid-cols-2">
+            {products.map((p) => (
               <ProductCard
                 key={p.name}
+                index={p.index}
+                kicker={p.kicker}
+                accent={p.accent}
                 name={p.name}
                 body={p.body}
                 meta={p.meta}
                 href={p.href}
-                className={`${i % 2 === 0 ? "sm:border-r" : ""} ${i < 2 ? "border-b" : ""} border-hairline`}
               />
             ))}
           </Reveal>

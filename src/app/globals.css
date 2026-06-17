@@ -95,9 +95,25 @@ body::after {
   animation: ticker 38s linear infinite;
 }
 
+/* Animated equalizer bars (DecideAI-style technical accent) */
+@keyframes barpulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.45);
+  }
+}
+.bar-pulse {
+  transform-origin: bottom;
+  animation: barpulse 1.8s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .text-swirl,
-  .animate-ticker {
+  .animate-ticker,
+  .bar-pulse {
     animation: none;
   }
 }
