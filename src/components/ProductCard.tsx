@@ -16,18 +16,18 @@ export default function ProductCard({
   return (
     <Link
       href={href}
-      className={`group relative flex flex-col bg-bone p-8 transition-colors duration-300 hover:bg-pink lg:p-10 ${className ?? ""}`}
+      className={`group flex flex-col bg-bone p-8 transition-colors duration-300 hover:bg-ink lg:p-10 ${className ?? ""}`}
     >
       <h3 className="font-display text-3xl uppercase tracking-wide text-ink transition-colors group-hover:text-bone">
         {name}
       </h3>
-      <p className="mt-4 flex-1 text-base leading-relaxed text-ink/70 transition-colors group-hover:text-bone/90">
+      <p className="mt-4 flex-1 leading-relaxed text-ink/70 transition-colors group-hover:text-bone/80">
         {body}
       </p>
-      <p className="mt-6 text-sm italic text-plum transition-colors group-hover:text-bone/80">
+      <p className="mt-6 text-sm italic text-ink/50 transition-colors group-hover:text-pink">
         {meta}
       </p>
-      <span className="mt-6 inline-flex items-center font-display text-sm uppercase tracking-[0.15em] text-pink transition-colors group-hover:text-bone">
+      <span className="mt-6 inline-flex items-center font-display text-sm uppercase tracking-[0.15em] text-pink">
         Learn more
         <svg
           viewBox="0 0 16 16"

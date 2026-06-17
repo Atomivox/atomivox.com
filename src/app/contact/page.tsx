@@ -8,41 +8,36 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="border-b-2 border-ink">
-      <div className="mx-auto max-w-3xl px-6 py-24 lg:py-32">
-        <span className="inline-flex items-center gap-3 font-display text-sm uppercase tracking-[0.35em] text-pink">
-          <span className="h-px w-8 bg-pink" />
+    <section className="border-b border-hairline">
+      <div className="mx-auto max-w-3xl px-6 py-20 lg:py-28">
+        <span className="inline-flex items-center gap-3 font-display text-sm uppercase tracking-[0.3em] text-ink/50">
+          <span className="h-2 w-2 bg-pink" />
           Contact
         </span>
-        <h1 className="mt-6 font-display text-5xl uppercase leading-[0.9] text-ink sm:text-7xl">
+        <h1 className="mt-6 font-display text-6xl uppercase leading-[0.85] tracking-[-0.01em] text-ink sm:text-7xl">
           Let&apos;s <span className="text-swirl">talk.</span>
         </h1>
-        <p className="mt-6 text-lg leading-relaxed text-ink/75">
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
           Not sure which product is right? Start with a Brand Audit. Want to talk
           first? Book a 30-minute discovery call. Here&apos;s how to reach us.
         </p>
 
         <form className="mt-12 grid gap-6">
-          <div className="grid gap-2">
-            <label className="font-display text-sm uppercase tracking-[0.2em] text-ink/60">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              className="border-2 border-ink bg-bone px-4 py-3 text-ink outline-none focus:border-pink"
-            />
-          </div>
-          <div className="grid gap-2">
-            <label className="font-display text-sm uppercase tracking-[0.2em] text-ink/60">
-              Company
-            </label>
-            <input
-              type="text"
-              name="company"
-              className="border-2 border-ink bg-bone px-4 py-3 text-ink outline-none focus:border-pink"
-            />
-          </div>
+          {[
+            { label: "Name", name: "name", type: "text" },
+            { label: "Company", name: "company", type: "text" },
+          ].map((f) => (
+            <div key={f.name} className="grid gap-2">
+              <label className="font-display text-sm uppercase tracking-[0.2em] text-ink/60">
+                {f.label}
+              </label>
+              <input
+                type={f.type}
+                name={f.name}
+                className="border border-hairline bg-transparent px-4 py-3 text-ink outline-none transition-colors focus:border-pink"
+              />
+            </div>
+          ))}
           <div className="grid gap-2">
             <label className="font-display text-sm uppercase tracking-[0.2em] text-ink/60">
               What are you working on?
@@ -50,7 +45,7 @@ export default function ContactPage() {
             <textarea
               name="message"
               rows={4}
-              className="border-2 border-ink bg-bone px-4 py-3 text-ink outline-none focus:border-pink"
+              className="border border-hairline bg-transparent px-4 py-3 text-ink outline-none transition-colors focus:border-pink"
             />
           </div>
           <button
