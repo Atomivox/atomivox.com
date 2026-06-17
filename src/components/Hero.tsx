@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import Button from "./Button";
-import BarViz from "./BarViz";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const container = {
@@ -14,12 +13,6 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
 };
 
-const meters = [
-  { n: "01", label: "Position" },
-  { n: "02", label: "Message" },
-  { n: "03", label: "Story" },
-];
-
 export default function Hero() {
   return (
     <section className="border-b border-hairline bg-bone">
@@ -27,7 +20,7 @@ export default function Hero() {
       <div className="border-b border-hairline">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 font-display text-xs uppercase tracking-[0.25em] text-ink/60 lg:px-10">
           <span className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 bg-pink" /> B2B Brand Studio
+            <span className="h-2 w-2 rounded-[1px] bg-pink" /> B2B Brand Studio
           </span>
           <span>Ireland — Worldwide</span>
           <span className="hidden sm:block">©2026 · V.1</span>
@@ -38,23 +31,9 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="mx-auto max-w-7xl px-6 pb-14 pt-14 lg:px-10 lg:pb-20 lg:pt-20"
+        className="mx-auto max-w-7xl px-6 pb-14 pt-16 lg:px-10 lg:pb-20 lg:pt-24"
       >
-        {/* equalizer band */}
-        <motion.div variants={item} className="grid gap-8 sm:grid-cols-3">
-          {meters.map((m) => (
-            <div key={m.n}>
-              <div className="flex items-baseline justify-between font-display text-sm uppercase tracking-[0.2em] text-ink">
-                <span>
-                  <span className="text-pink">{m.n}.</span> {m.label}
-                </span>
-              </div>
-              <BarViz className="mt-3" />
-            </div>
-          ))}
-        </motion.div>
-
-        <h1 className="mt-14 font-display uppercase leading-[0.8] tracking-[-0.02em] text-ink">
+        <h1 className="font-display uppercase leading-[0.8] tracking-[-0.02em] text-ink">
           <motion.span variants={item} className="block text-6xl sm:text-8xl lg:text-[9rem]">
             You can&apos;t scale
           </motion.span>

@@ -176,7 +176,7 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <Reveal className="mt-14 grid gap-px bg-hairline sm:grid-cols-2">
+          <Reveal className="mt-14 grid gap-px overflow-hidden rounded-[5px] bg-hairline sm:grid-cols-2">
             {products.map((p) => (
               <ProductCard
                 key={p.name}
@@ -231,7 +231,7 @@ export default function Home() {
             </h2>
           </Reveal>
 
-          <Reveal className="mt-12 grid border border-hairline md:grid-cols-2">
+          <Reveal className="mt-12 grid overflow-hidden rounded-[5px] border border-hairline md:grid-cols-2">
             <div className="p-8 lg:p-10">
               <h3 className="font-display text-2xl uppercase tracking-wide text-pink">Right fit</h3>
               <ul className="mt-6 space-y-4 text-lg leading-relaxed text-ink/80">

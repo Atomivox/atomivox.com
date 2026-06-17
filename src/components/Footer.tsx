@@ -17,18 +17,13 @@ export default function Footer() {
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-10">
           {/* left: bug + sticker + line */}
           <div>
-            <div className="relative inline-block">
-              <Image
-                src="/brand/bug-white.png"
-                alt="Atomivox"
-                width={429}
-                height={425}
-                className="h-48 w-48"
-              />
-              <span className="absolute -left-4 top-2 -rotate-6 bg-pink px-3 py-1 font-display text-sm uppercase tracking-[0.2em] text-bone">
-                Open for briefs
-              </span>
-            </div>
+            <Image
+              src="/brand/bug-white.png"
+              alt="Atomivox"
+              width={429}
+              height={425}
+              className="h-48 w-48"
+            />
             <p className="mt-10 max-w-sm font-display text-3xl uppercase leading-[0.95] tracking-wide">
               Brand position. <span className="text-pink">Clear message.</span>{" "}
               Story that scales.

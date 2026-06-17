@@ -50,6 +50,14 @@ body {
   color: #fff;
 }
 
+/* Global soft 5px corners */
+button,
+input,
+textarea,
+select {
+  border-radius: 5px;
+}
+
 /* Condensed display face */
 .font-display {
   font-family: var(--font-display), "Arial Narrow", system-ui, sans-serif;

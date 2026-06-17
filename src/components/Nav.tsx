@@ -41,7 +41,7 @@ export default function Nav() {
           ))}
           <Link
             href="/contact"
-            className="bg-pink px-5 py-2.5 font-display text-sm uppercase tracking-[0.15em] text-bone transition-colors hover:bg-ink"
+            className="rounded-[5px] bg-pink px-5 py-2.5 font-display text-sm uppercase tracking-[0.15em] text-bone transition-colors hover:bg-ink"
           >
             Book a Brand Audit
           </Link>
@@ -86,7 +86,7 @@ export default function Nav() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-block bg-pink px-5 py-3 text-center font-display text-base uppercase tracking-[0.15em] text-bone"
+              className="mt-2 inline-block rounded-[5px] bg-pink px-5 py-3 text-center font-display text-base uppercase tracking-[0.15em] text-bone"
             >
               Book a Brand Audit
             </Link>

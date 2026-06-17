@@ -23,7 +23,7 @@ export default function Button({
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center px-7 py-4 font-display text-base uppercase tracking-[0.15em] transition-colors duration-300 ${variants[variant]} ${className ?? ""}`}
+      className={`group inline-flex items-center rounded-[5px] px-7 py-4 font-display text-base uppercase tracking-[0.15em] transition-colors duration-300 ${variants[variant]} ${className ?? ""}`}
     >
       <span>{children}</span>
       {/* fixed-width slot so the button never resizes; arrow slides in on hover */}

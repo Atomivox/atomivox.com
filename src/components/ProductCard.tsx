@@ -32,7 +32,7 @@ export default function ProductCard({
   return (
     <Link
       href={href}
-      className={`group flex min-h-[20rem] flex-col p-8 transition-colors duration-300 lg:p-10 ${theme} ${className ?? ""}`}
+      className={`group flex min-h-[20rem] flex-col rounded-[5px] p-8 transition-colors duration-300 lg:p-10 ${theme} ${className ?? ""}`}
     >
       <div className={`flex items-center justify-between font-display text-xs uppercase tracking-[0.25em] ${muted}`}>
         <span>{kicker}</span>
