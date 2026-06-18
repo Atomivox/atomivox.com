@@ -4,6 +4,8 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import Cursor from "@/components/Cursor";
+import LoadDetonation from "@/components/LoadDetonation";
 
 const pathway = Pathway_Gothic_One({
   variable: "--font-pathway",
@@ -44,6 +46,8 @@ export default function RootLayout({
       className={`${pathway.variable} ${karma.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <LoadDetonation />
+        <Cursor />
         <SmoothScroll>
           <Nav />
           <main className="flex-1">{children}</main>
