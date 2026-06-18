@@ -6,8 +6,7 @@ const nav = [
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "https://instagram.com", label: "Instagram", external: true },
-  { href: "https://linkedin.com", label: "LinkedIn", external: true },
+  { href: "https://www.linkedin.com/in/kevmullins/", label: "LinkedIn", external: true },
 ];
 
 export default function Footer() {
