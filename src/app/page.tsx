@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
+import LogoBar from "@/components/LogoBar";
 import Reveal from "@/components/Reveal";
 import ProductCard from "@/components/ProductCard";
 import Faq from "@/components/Faq";
@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Marquee />
+      <LogoBar />
 
       {/* 01 — THE PROBLEM */}
       <Section>
@@ -110,7 +110,7 @@ export default function Home() {
               <p>I&apos;ve watched founders greenlight their third €25k website and mutter &ldquo;hopefully this one does the trick.&rdquo; I get it.</p>
               <p>I spent a decade on the other side. Watched good people pour great work onto a foundation that was never there, then carry the blame when it didn&apos;t land. The execution was never the problem.</p>
               <p className="font-display text-2xl uppercase tracking-wide text-ink transition-colors group-hover/section:text-bone">Working myself out of a job is the job.</p>
-              <p className="font-punk text-2xl text-pink">— Kevin, Atomivox</p>
+              <p className="text-xl italic text-pink">— Kevin, Atomivox</p>
             </>
           }
         />
@@ -137,33 +137,23 @@ export default function Home() {
         </Reveal>
       </Section>
 
-      {/* 05 — HOW IT WORKS (interactive rows) */}
-      <Section invert={false}>
-        <Reveal>
-          <span className="inline-flex items-center gap-3 font-display text-sm uppercase tracking-[0.3em] text-ink/50">
-            <span className="text-pink">05</span>
-            <Bolt className="h-4 w-4 text-pink" />
-            How it works
-          </span>
-          <h2 className="mt-8 font-display text-5xl uppercase leading-[0.9] tracking-[-0.01em] text-ink sm:text-7xl">
-            The CORE Messaging Process
-          </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/70">
-            Three steps. Real sessions, real outputs. No deck left to rot in Dropbox.
-          </p>
-        </Reveal>
-
-        <div className="mt-12 grid gap-3">
-          {steps.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.08}>
-              <div className="group/row grid items-start gap-4 rounded-[5px] border border-hairline p-6 transition-colors duration-300 hover:bg-ink md:grid-cols-[7rem_15rem_1fr] md:gap-8 md:p-8">
-                <span className="font-display text-6xl leading-[0.8] text-pink transition-transform duration-300 group-hover/row:translate-x-1">{s.n}</span>
-                <h3 className="font-display text-3xl uppercase tracking-wide text-ink transition-colors group-hover/row:text-bone">{s.title}</h3>
-                <p className="leading-relaxed text-ink/70 transition-colors group-hover/row:text-bone/75">{s.body}</p>
-              </div>
-            </Reveal>
+      {/* 05 — HOW IT WORKS */}
+      <Section>
+        <Head
+          index="05"
+          mark={Bolt}
+          label="How it works"
+          title={<>The CORE Messaging Process</>}
+          copy={<p>Three steps. Real sessions, real outputs. No deck left to rot in Dropbox.</p>}
+        />
+        <Reveal className="mt-14 grid gap-10 md:grid-cols-3">
+          {steps.map((s) => (
+            <div key={s.title} className="border-t-2 border-pink pt-5">
+              <h3 className="font-display text-3xl uppercase tracking-wide text-ink transition-colors group-hover/section:text-bone">{s.title}</h3>
+              <p className="mt-3 leading-relaxed text-ink/70 transition-colors group-hover/section:text-bone/75">{s.body}</p>
+            </div>
           ))}
-        </div>
+        </Reveal>
       </Section>
 
       {/* 06 — WHO IT'S FOR */}
@@ -211,7 +201,7 @@ export default function Home() {
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 py-24 text-center lg:px-10 lg:py-36">
           <Reveal>
-            <h2 className="font-punk mx-auto max-w-4xl break-words text-[2.1rem] font-extrabold uppercase leading-[0.95] tracking-[-0.01em] text-ink sm:text-7xl">
+            <h2 className="mx-auto max-w-4xl font-display text-6xl uppercase leading-[0.9] tracking-[-0.01em] text-ink sm:text-8xl">
               Start with the <span className="text-swirl">Brand Audit.</span>
             </h2>
             <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-ink/75">

@@ -39,7 +39,7 @@ export default function Nav() {
           <Clock city="New York" tz="America/New_York" gmt="-4" className="hidden lg:block" />
           <Link
             href="/contact"
-            className="hidden -rotate-1 items-center gap-2 rounded-[5px] bg-ink px-5 py-2.5 font-display text-sm uppercase tracking-[0.12em] text-bone transition-transform hover:rotate-0 sm:inline-flex"
+            className="hidden items-center gap-2 rounded-[5px] bg-ink px-5 py-2.5 font-display text-sm uppercase tracking-[0.12em] text-bone transition-colors hover:bg-pink sm:inline-flex"
           >
             Book a Brand Audit
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-pink" />

@@ -13,7 +13,6 @@
   /* Type — brand fonts + one handwriting accent */
   --font-display: var(--font-pathway);
   --font-body: var(--font-karma);
-  --font-punk: var(--font-punk);
 }
 
 :root {
@@ -43,7 +42,6 @@ button, input, textarea, select { border-radius: 5px; }
 
 /* Fonts */
 .font-display { font-family: var(--font-display), "Arial Narrow", system-ui, sans-serif; }
-.font-punk { font-family: var(--font-punk), "Comic Sans MS", cursive; }
 
 /* Paper grit — coarse smudge layer + fine grain, multiplied onto the warm paper */
 body::before {

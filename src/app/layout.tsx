@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Pathway_Gothic_One, Karma, Shantell_Sans } from "next/font/google";
+import { Pathway_Gothic_One, Karma } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -19,12 +19,6 @@ const karma = Karma({
   display: "swap",
 });
 
-// Punk hand-drawn display face — the star of the headlines (graffiti artist Shantell Martin's font)
-const punk = Shantell_Sans({
-  variable: "--font-punk",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://atomivox.com"),
@@ -47,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${pathway.variable} ${karma.variable} ${punk.variable} h-full antialiased`}
+      className={`${pathway.variable} ${karma.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SmoothScroll>
