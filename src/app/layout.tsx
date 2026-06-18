@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Pathway_Gothic_One, Karma } from "next/font/google";
+import { Pathway_Gothic_One, Karma, Caveat } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -15,6 +15,14 @@ const pathway = Pathway_Gothic_One({
 const karma = Karma({
   variable: "--font-karma",
   weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+// Handwriting accent layer (margin notes / scrawled asides only)
+const caveat = Caveat({
+  variable: "--font-hand",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -40,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${pathway.variable} ${karma.variable} h-full antialiased`}
+      className={`${pathway.variable} ${karma.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SmoothScroll>

@@ -1,75 +1,62 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
-import Button from "./Button";
+import { MarkerCircle } from "./Marker";
+import { Eye, Star } from "./Marks";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
-};
+const container = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
+const item = { hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } } };
 
 export default function Hero() {
   return (
-    <section className="border-b border-hairline bg-bone">
-      {/* top technical row */}
-      <div className="border-b border-hairline">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 font-display text-xs uppercase tracking-[0.25em] text-ink/60 lg:px-10">
-          <span className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-[1px] bg-pink" /> B2B Brand Studio
-          </span>
-          <span>Ireland — Worldwide</span>
-          <span className="hidden sm:block">©2026 · V.1</span>
-        </div>
-      </div>
+    <section className="relative overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6 pb-20 pt-16 lg:px-10 lg:pb-28 lg:pt-24">
+        <motion.div variants={container} initial="hidden" animate="show">
+          <motion.span variants={item} className="inline-flex items-center gap-3 font-display text-sm uppercase tracking-[0.3em] text-ink/60">
+            <Star className="h-4 w-4 text-pink" />
+            Brand studio for B2B founders
+          </motion.span>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="mx-auto max-w-7xl px-6 pb-14 pt-16 lg:px-10 lg:pb-20 lg:pt-24"
-      >
-        <h1 className="font-display uppercase leading-[0.8] tracking-[-0.02em] text-ink">
-          <motion.span variants={item} className="block text-6xl sm:text-8xl lg:text-[9rem]">
-            You can&apos;t scale
-          </motion.span>
-          <motion.span variants={item} className="block text-6xl sm:text-8xl lg:text-[9rem]">
-            a story that
-          </motion.span>
-          <motion.span variants={item} className="block text-6xl sm:text-8xl lg:text-[9rem]">
-            only exists in
-          </motion.span>
-          <motion.span variants={item} className="block">
-            <span className="text-6xl sm:text-8xl lg:text-[9rem]">your </span>
-            <span className="text-swirl text-7xl sm:text-9xl lg:text-[11rem]">head.</span>
-          </motion.span>
-        </h1>
+          <h1 className="mt-8 max-w-5xl font-display uppercase leading-[0.85] tracking-[-0.015em] text-ink">
+            <motion.span variants={item} className="block text-5xl sm:text-7xl lg:text-[7.5rem]">
+              Loud isn&apos;t enough,
+            </motion.span>
+            <motion.span variants={item} className="block text-5xl sm:text-7xl lg:text-[7.5rem]">
+              you need to be
+            </motion.span>
+            <motion.span variants={item} className="block text-5xl sm:text-7xl lg:text-[7.5rem]">
+              <MarkerCircle playOnLoad>understood.</MarkerCircle>
+            </motion.span>
+          </h1>
 
-        <div className="mt-12 flex flex-col gap-10 border-t border-hairline pt-8 sm:flex-row sm:items-end sm:justify-between">
-          <motion.p
-            variants={item}
-            className="max-w-md text-xl leading-relaxed text-ink/70"
-          >
-            We build the brand position, message, and story your marketing has
-            been missing.
-          </motion.p>
-          <motion.div variants={item} className="flex flex-col gap-4 sm:flex-row">
-            <Button href="/contact" variant="primary">Book a Brand Audit</Button>
-            <Button href="/contact" variant="outline">Discovery call</Button>
-          </motion.div>
-        </div>
-      </motion.div>
+          <div className="mt-12 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+            <motion.div variants={item} className="relative max-w-xl">
+              <Eye className="absolute -left-3 -top-10 hidden h-12 w-12 text-pink/70 sm:block" />
+              <p className="font-hand text-3xl leading-[1.15] text-ink/90 sm:text-4xl">
+                I build the position, message &amp; story your marketing&apos;s been
+                missing.
+              </p>
+            </motion.div>
 
-      {/* bottom cue row */}
-      <div className="border-t border-hairline">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 font-display text-xs uppercase tracking-[0.25em] text-ink/50 lg:px-10">
-          <span>Brand · Position · Story</span>
-          <span className="text-ink">Scroll ↓</span>
-        </div>
+            <motion.div variants={item} className="flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex -rotate-1 items-center gap-2 rounded-[5px] bg-ink px-7 py-4 font-display text-base uppercase tracking-[0.12em] text-bone transition-transform hover:rotate-0"
+              >
+                Book a Brand Audit
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-pink" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center rounded-[5px] border-2 border-ink px-7 py-4 font-display text-base uppercase tracking-[0.12em] text-ink transition-colors hover:bg-ink hover:text-bone"
+              >
+                Book a discovery call
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
